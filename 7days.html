@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>7 Days Buttons with Inside Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #222;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .button-container {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 600px;
+    }
+    button {
+      background-color: #007BFF;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 20px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      flex: 1 1 120px;
+      min-width: 120px;
+      position: relative;
+      overflow: hidden;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .inside-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: bold;
+      font-size: 18px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      white-space: nowrap;
+    }
+    button.show-text .inside-text {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>7 Days Buttons</h1>
+  <div class="button-container">
+    <button id="btn-Monday" onclick="showInsideText(this, 'dosa')">Monday<span class="inside-text"></span></button>
+    <button id="btn-Tuesday" onclick="showInsideText(this, 'idli')">Tuesday<span class="inside-text"></span></button>
+    <button id="btn-Wednesday" onclick="showInsideText(this, 'vada')">Wednesday<span class="inside-text"></span></button>
+    <button id="btn-Thursday" onclick="showInsideText(this, 'poha')">Thursday<span class="inside-text"></span></button>
+    <button id="btn-Friday" onclick="showInsideText(this, 'paratha')">Friday<span class="inside-text"></span></button>
+    <button id="btn-Saturday" onclick="showInsideText(this, 'upma')">Saturday<span class="inside-text"></span></button>
+    <button id="btn-Sunday" onclick="showInsideText(this, 'puri')">Sunday<span class="inside-text"></span></button>
+  </div>
+
+  <script>
+    function showInsideText(button, text) {
+      // Remove inside text from all buttons
+      const buttons = document.querySelectorAll('.button-container button');
+      buttons.forEach(btn => {
+        btn.classList.remove('show-text');
+        btn.querySelector('.inside-text').textContent = '';
+      });
+      // Set inside text for clicked button
+      button.classList.add('show-text');
+      button.querySelector('.inside-text').textContent = text;
+    }
+  </script>
+</body>
+</html>
