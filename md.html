@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weekly Importance</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f0f8ff;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .button-container {
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 15px 25px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #importance {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Weekly Button Importance</h1>
+  <div class="button-container">
+    <button onclick="showImportance('Monday')">Monday</button>
+    <button onclick="showImportance('Tuesday')">Tuesday</button>
+    <button onclick="showImportance('Wednesday')">Wednesday</button>
+    <button onclick="showImportance('Thursday')">Thursday</button>
+    <button onclick="showImportance('Friday')">Friday</button>
+    <button onclick="showImportance('Saturday')">Saturday</button>
+    <button onclick="showImportance('Sunday')">Sunday</button>
+  </div>
+
+  <div id="importance"></div>
+
+  <script>
+    function showImportance(day) {
+      const messages = {
+        "Monday": "Start of the week – perfect for setting goals and planning ahead.",
+        "Tuesday": "Great day for productivity – most people hit their stride today.",
+        "Wednesday": "Midweek checkpoint – time to evaluate your progress.",
+        "Thursday": "Momentum day – push forward and complete major tasks.",
+        "Friday": "Wrap-up day – finish work and prepare for a restful weekend.",
+        "Saturday": "Relax and recharge – ideal for hobbies and family time.",
+        "Sunday": "Reflect, rest, and reset – prepare yourself mentally for the week ahead."
+      };
+
+      document.getElementById('importance').innerText = messages[day];
+    }
+  </script>
+
+</body>
+</html>
